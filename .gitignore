@@ -1,0 +1,13 @@
+node_modules/
+*coba.js
+
+\video
+/media/videos/**
+
+
+\foto
+/media/photos/**
+
+
+package-lock.json
+

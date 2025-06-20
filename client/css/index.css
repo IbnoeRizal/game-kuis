@@ -1,0 +1,258 @@
+*{
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+}
+:root{
+    /* alert !!
+     mohon hanya mengubah value rgb dari 
+     --background color, 
+     tema akan disesuaikan dengan colortheme.js
+    */
+    --background-color:rgb(138, 41, 23);
+    --box-color: 127, 255, 212;
+    --input-line-color: rgb(70, 177, 149);
+    --title-light-color: 255,255,255;
+}
+body{
+    height: fit-content;
+    background-color: var(--background-color);
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-self: center;
+}
+.title{
+    color: rgba(var(--title-light-color), 1);
+    font-size: 2rem;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    height:fit-content;
+    text-shadow: 0 0 10px rgba(var(--title-light-color), 0.5), 
+                 0 0 20px rgba(var(--title-light-color), 0.3), 
+                 0 0 30px rgba(var(--title-light-color), 0.2);
+}
+.midcontainer-form{
+    position: relative;
+    background-color: rgba(var(--box-color), 0.9);
+    margin: 20vh auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border-radius: 5px;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(var(--box-color), 0.6),
+                0 0 20px rgba(var(--box-color), 0.4),
+                0 0 30px rgba(var(--box-color), 0.3);
+    z-index: 1;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.midcontainer-form>h3{
+    margin-bottom: 1rem;
+}
+button{
+    margin-top: 0.5rem;
+    align-self: center;
+    width: 100%; 
+    background-color: var(--input-line-color);
+    border:none;    
+    padding: 0.3rem;  
+    border-radius: 0.1rem;
+    cursor : pointer
+}
+button,label,h3{
+    color: var(--background-color);
+    font-weight: bold;
+}
+input{
+    outline: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--input-line-color);
+    background: transparent;
+}
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+/* Client */
+#lobby{
+    color: rgba(var(--title-light-color), 1);
+    text-align: center;
+    font-size: calc(3vh);
+    
+}
+#answers{
+    position: relative;
+    top: 30vh;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80vw;
+    height: 30vh;
+    gap: 1rem;
+    justify-items: center;
+}
+.button-jawaban{
+    color: var(--background-color);
+    background-color: rgba(var(--box-color),1);
+    font-weight: bold;
+    font-size: calc(2vh);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.button-jawaban:hover{
+    color: rgba(var(--box-color),1);
+    background-color: rgba(var(--box-color),0.5);
+}
+.bar{
+    margin-top: 0;
+    text-align: left;
+    height: 7vh;
+    width: 100vw;
+    border-bottom: 3px solid rgba(var(--title-light-color),1);
+    font-size: calc(5vh);
+}
+#quit{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: max-content;
+    height: 5vh;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    font-size: calc(3vh);
+    color: rgba(var(--title-light-color),1);
+    background-color: rgba(var(--box-color), 0);
+    padding: 1vh;
+    z-index: 10;
+    text-orientation: sideways;
+}
+
+#quit:hover{
+    color: var(--background-color);
+    background-color: rgba(var(--box-color), 1);
+}
+/* Client */
+
+
+
+/* Host */
+#tombol{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    z-index: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--background-color);
+    border:0.5px dashed rgba(var(--box-color), 1)
+}
+
+#tombol:hover{
+    background-color: var(--background-color);
+    color: rgba(var(--title-light-color), 1);
+
+}
+
+#content {
+    position: relative; /* Agar posisi absolute bekerja di dalamnya */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img{
+    margin-top: 10vh;
+    width: auto;
+    height: 50vh;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(var(--box-color), 0.6),
+                0 0 20px rgba(var(--box-color), 0.4),
+                0 0 30px rgba(var(--box-color), 0.3);
+}
+
+#container-soal{
+    display: flex;
+    margin-top: 2vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#soal,#pilihan{
+    color: var(--input-line-color);
+    text-align: center;
+    font-weight: bold;
+}
+
+#soal{
+    background-color: rgba(var(--box-color), 1);
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+#pilihan{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom */
+  gap: 1rem; /* jarak antar elemen, bisa kamu sesuaikan */
+  width: 100vw;
+  position: absolute;
+  top: 75vh;
+  justify-items: center; /* biar kontennya rata di tiap kolom */
+}
+
+.jawaban{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--box-color),1);
+    padding: 0.2rem;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#container-pemain {
+    position: absolute; /* Melayang di atas video */
+    top: 70%; /* Atur posisi vertikal */
+    left: 50%;
+    transform: translateX(-50%); /* Agar tetap di tengah */
+    display: flex; /* Membuat elemen berjejer */
+    gap: 10px; /* Jarak antar elemen */
+    z-index: 2; /* Memastikan berada di atas video */
+}
+
+.pemain {
+    background-color: var(--background-color);
+    color: rgba(var(--title-light-color), 1);;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Host */
+
