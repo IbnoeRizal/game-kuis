@@ -52,7 +52,22 @@ export default class Host{
         daftarjawaban.forEach((dj) => {
             const div = document.createElement('div');
             div.className = "jawaban";
-            div.textContent = dj;
+
+            if(typeof dj === 'object' && !Array.isArray(dj) && dj !== null){
+                const image = document.createElement('img');
+                const text = document.createElement('div');
+
+                image.className = "jawabanImg";
+                image.src = dj.source;
+                
+                text.textContent = dj.alt;
+                                
+                div.appendChild(image);
+                div.appendChild(text);
+            }else{
+                div.textContent = dj;
+            }
+
             cj.appendChild(div);
         });
         return true;

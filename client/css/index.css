@@ -190,7 +190,7 @@ video {
 img{
     margin-top: 10vh;
     width: auto;
-    height: 50vh;
+    height: 30vh;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(var(--box-color), 0.6),
                 0 0 20px rgba(var(--box-color), 0.4),
@@ -223,19 +223,29 @@ img{
   grid-template-columns: 1fr 1fr; /* 2 kolom */
   gap: 1rem; /* jarak antar elemen, bisa kamu sesuaikan */
   width: 100vw;
-  position: absolute;
-  top: 75vh;
+  height: fit-content;
+  min-height: 30vh;
+  margin-top: 5vh;
   justify-items: center; /* biar kontennya rata di tiap kolom */
+  position: absolute;
+  top:50%;
 }
 
 .jawaban{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: fit-content;
+    min-height: 80%;
     background-color: rgba(var(--box-color),1);
-    padding: 0.2rem;
+    padding: 2px;
     border-radius: 10px;
     font-size: larger;
     font-weight: bold;
+}
+
+.jawabanImg{
+    margin: 0;
+    height: 15vh;
+    box-shadow: none;
 }
 
 #container-pemain {
