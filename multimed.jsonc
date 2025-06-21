@@ -87,6 +87,8 @@
     "level 1": [
       {
         "soal": "BPUPKI singkatan dari ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "Badan Penyelidik Usaha Persiapan Kemerdekaan Indonesia",
@@ -98,6 +100,8 @@
       },
       {
         "soal": "PPKI singkatan dari ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 1,
         "pilihan": [
           "Panitia Pembela Kemerdekaan Indonesia",
@@ -109,6 +113,8 @@
       },
       {
         "soal": "BPUPKI beranggotakan ... orang",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 3,
         "pilihan": [
           56,
@@ -120,6 +126,8 @@
       },
       {
         "soal": "Tugas BPUPKI adalah ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "Mempelajari dan memepersiapakan hal-hal terkait tata pemerintahan untuk mendirikan negara merdeka",
@@ -130,6 +138,8 @@
       },
       {
         "soal": "Tugas PPKI adalah ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 3,
         "pilihan": [
           "Mengesahkan UUD 1945",
@@ -143,6 +153,8 @@
     "level 2": [
       {
         "soal": "BPUKI di bersidang di ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 1,
         "pilihan": [
           "Gedung Pancasila",
@@ -154,6 +166,8 @@
       },
       {
         "soal": "Tujuan Jepang Membentuk BPUPKI adalah ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 2,
         "pilihan": [
           "Mempermudah jepang memenangkan perang asia timur raya",
@@ -165,69 +179,75 @@
       },
       {
         "soal": "BPUPKI diketuai oleh ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 1,
         "pilihan": [
           {
-            "gambar": "/media/photos/ir.Soekarno.jpg",
-            "nama": "Ir.Soekarno"
+            "source": "/media/photos/ir.Soekarno.jpg",
+            "alt": "Ir.Soekarno"
           },
           {
-            "gambar": "/media/photos/Radjiman-Wedyodiningrat.jpg",
-            "nama": "Radjiman Wedyodiningrat"
+            "source": "/media/photos/Radjiman-Wedyodiningrat.jpg",
+            "alt": "Radjiman Wedyodiningrat"
           },
           {
-            "gambar": "/media/photos/Drs.Mohammad-Hatta.jpg",
-            "nama": "Drs.Mohammad Hatta"
+            "source": "/media/photos/Drs.Mohammad-Hatta.jpg",
+            "alt": "Drs.Mohammad Hatta"
           },
           {
-            "gambar": "/media/photos/Raden-Panji-Suroso.jpg",
-            "nama": "Raden Panji Soeroso"
+            "source": "/media/photos/Raden-Panji-Suroso.jpg",
+            "alt": "Raden Panji Soeroso"
           }
         ],
         "waktu": 5 //detik
       },
       {
         "soal": "PPKI diketuai oleh ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           {
-            "gambar": "/media/photos/ir.Soekarno.jpg",
-            "nama": "Ir.Soekarno"
+            "source": "/media/photos/ir.Soekarno.jpg",
+            "alt": "Ir.Soekarno"
           },
           {
-            "gambar": "/media/photos/Radjiman-Wedyodiningrat.jpg",
-            "nama": "Radjiman Wedyodiningrat"
+            "source": "/media/photos/Radjiman-Wedyodiningrat.jpg",
+            "alt": "Radjiman Wedyodiningrat"
           },
           {
-            "gambar": "/media/photos/Drs.Mohammad-Hatta.jpg",
-            "nama": "Drs.Mohammad Hatta"
+            "source": "/media/photos/Drs.Mohammad-Hatta.jpg",
+            "alt": "Drs.Mohammad Hatta"
           },
           {
-            "gambar": "/media/photos/Raden-Panji-Suroso.jpg",
-            "nama": "Raden Panji Soeroso"
+            "source": "/media/photos/Raden-Panji-Suroso.jpg",
+            "alt": "Raden Panji Soeroso"
           }
         ],
         "waktu": 5 //detik
       },
       {
         "soal": "BPUPKI diketuai oleh ?",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 1,
         "pilihan": [
           {
-            "gambar": "https://id.wikipedia.org/wiki/Berkas:Presiden_Sukarno.jpg",
-            "nama": "Ir. Soekarno"
+            "source": "/media/photos/ir.Soekarno.jpg",
+            "alt": "Ir.Soekarno"
           },
           {
-            "gambar": "https://id.wikipedia.org/wiki/Berkas:Radjiman_Wediodiningrat,_Kami_Perkenalkan_(1952),_p77.jpg",
-            "nama": "Radjiman Wedyodiningrat"
+            "source": "/media/photos/Radjiman-Wedyodiningrat.jpg",
+            "alt": "Radjiman Wedyodiningrat"
           },
           {
-            "gambar": "https://id.wikipedia.org/wiki/Berkas:Mohammad_Hatta,_Pekan_Buku_Indonesia_1954,_p242.jpg",
-            "nama": "Drs. Mohammad Hatta"
+            "source": "/media/photos/Drs.Mohammad-Hatta.jpg",
+            "alt": "Drs.Mohammad Hatta"
           },
           {
-            "gambar": "https://id.wikipedia.org/wiki/Berkas:Raden_Panji_Suroso,_Kami_Perkenalkan_(1954),_p30.jpg",
-            "nama": "Raden Panji Soeroso"
+            "source": "/media/photos/Raden-Panji-Suroso.jpg",
+            "alt": "Raden Panji Soeroso"
           }
         ],
         "waktu": 5 //detik
@@ -236,6 +256,8 @@
     "level 3": [
       {
         "soal": "BPUPKI didirikan oleh militer AD jepang pada tanggal 1 Maret 1945 dan disahkan pada tanggal 29 April 1945 sebagai upaya mendapat dukungan dari bangsa indonesia",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "true",
@@ -245,6 +267,8 @@
       },
       {
         "soal": "Sidang BPUPKI menghasilkan Rumusan Pancasila, Rancangan UUD 1945, Penetapan Bentuk negara indonesia",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "true",
@@ -254,6 +278,8 @@
       },
       {
         "soal": "sehari setelah pengeboman kota Hiroshima oleh Amerika serikat dibentuklah PPKI. pada tanggal 12 Agustus 1945, Marsekal Hisaichi Terauchi menyampaikan bahwa jepang akan segera memberikan kemerdekaan indonesia",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "true",
@@ -263,6 +289,8 @@
       },
       {
         "soal": "wiki",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "true",
@@ -272,6 +300,8 @@
       },
       {
         "soal": "wiki",
+        "media_source": null,
+        "media_type":null,
         "index jawaban": 0,
         "pilihan": [
           "true",

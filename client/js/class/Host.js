@@ -1,7 +1,7 @@
 // daftar elemen yang dimanipulasi 
 export default class Host{
-    static Video = 1;
-    static Image = 2;
+    static Video = "video";
+    static Image = "image";
 
 
     static obj = Object.freeze({
@@ -15,7 +15,7 @@ export default class Host{
     constructor(){
     }
     
-    addMedia(jenis,source){
+    addMedia(jenis,source, {forceFullscreen = false} = {}){
         const container = Host.obj.kontainer_konten;
         let media;
 
@@ -32,6 +32,13 @@ export default class Host{
                 media = document.createElement('img');
                 media.src = source;
             break;
+        }
+        if(forceFullscreen){
+            media.style.height = "100%";
+            media.style.width = "100%";
+        }else{
+            media.style.height = "30vh";
+            media.style.width = "auto";
         }
         if(container.firstChild)
             this.#removeAllChildNodes(container);

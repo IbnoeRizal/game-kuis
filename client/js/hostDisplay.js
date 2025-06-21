@@ -39,7 +39,7 @@ const buttonEventRestart = () => {buttonSpecial(EventHost.game_restart)};
 function routerPaket(data){
     switch(data.event){
         case EventHost.game_lobby: //server send lobby source
-            host.addMedia(Host.Video, data.message.source); // need the source
+            host.addMedia(Host.Video, data.message.source,{ forceFullscreen:true }); // need the source
             host.makeitlobby(); // need to make it lobby
             if(!hasPlayed){
                 host.toggleDisplay(Host.obj.tombol,{forceDisplay: true});
@@ -68,13 +68,30 @@ function routerPaket(data){
             host.displayPlayer(data.message,{score: true, kontainer: true}); // display the leaderboard
             break;
         case EventHost.game_send_question: //receive question pack from server
-            host.makeitKuis(); //display the kuis section
-            host.addSoal(data.message.soal,data.message.pilihan); //display the question and options
-            setTimeout(()=>{
-                ws.send(sendData(EventHost.game_next,null));
-            },data.message.waktu*1000)
+            _handleSendQuestion(data);
             break;
     }
+}
+
+function _handleSendQuestion(data){
+
+    const mediaType = data.message.media_type;
+    const mediaSource = data.message.media_source;
+
+    if(typeof mediaSource === 'string' && typeof mediaType === 'string'){
+        if(mediaType === Host.Image)
+            host.addMedia(mediaType,mediaSource);
+        else
+        if(mediaType === Host.Video)
+            host.addMedia(mediaType,mediaSource);
+    }
+
+    host.makeitKuis(); //display the kuis section
+
+    host.addSoal(data.message.soal,data.message.pilihan); //display the question and options
+    setTimeout(()=>{
+        ws.send(sendData(EventHost.game_next,null));
+    },data.message.waktu*1000)
 }
 
 
