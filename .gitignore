@@ -1,13 +1,18 @@
-node_modules/
-*coba.js
-
-\video
+#video and photo
 /media/videos/**
-
-
-\foto
 /media/photos/**
 
+#keep track the gitkeep so the folder will be safe
+!/media/photos/.gitkeep
+!/media/videos/.gitkeep
 
+#keep track the folders
+!/media/
+!/media/photos/
+!/media/videos/
+
+#others
 package-lock.json
 .vscode
+node_modules/
+*coba.js
