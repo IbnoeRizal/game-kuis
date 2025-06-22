@@ -89,10 +89,6 @@ export default class Host{
 
     makeitlobby(){
         this.toggleDisplay(Host.obj.kontainer_kuis,{forceNone:true});
-       
-        /* setTimeout(()=>{
-            document.querySelector(`#${Host.obj.kontainer_konten.id}>video`).muted = false;
-        },10) */
     }
 
     makeitKuis(){
@@ -170,5 +166,12 @@ export default class Host{
         }else{
             node.style.display = 'none';
         }
+    }
+
+    addSound(source){
+        if(typeof source !== 'string') return;
+        const sound = new Audio(source);
+        sound.currentTime
+        return sound;
     }
 }

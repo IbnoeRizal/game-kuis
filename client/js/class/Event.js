@@ -17,6 +17,7 @@ export class EventHost{
     static player_joined_after = "player-joined-after";
     static player_quit = "player-quit-the-game";
     static game_send_question = "game-send-question";
+    static game_audios = 'game-audios';
     
 
     //kirim

@@ -80,6 +80,12 @@
       "folderPath": "../../../client/",
       "mediaPath": "../../../media/"
     },
+    "sounds":{
+      "level_countdown": {
+        "source" : "/media/audios/Countdown-timer.mp3",
+        "countSecond" : 10 //hitungan dimulai di angka ke 10 
+      }
+    },
     "lobby masuk": {
       "background music video": "17 Agustus Tahun 45",
       "source": "/media/videos/17-agustus-45.mp4"

@@ -35,6 +35,10 @@ function buttonSpecial(event){
 
 const buttonEventstart = () => {buttonSpecial(EventHost.game_start)};
 const buttonEventRestart = () => {buttonSpecial(EventHost.game_restart)};
+const audios = {
+    countDownAudios:null,
+    countDown_countSecond:null,
+}
 
 function routerPaket(data){
     switch(data.event){
@@ -70,6 +74,10 @@ function routerPaket(data){
         case EventHost.game_send_question: //receive question pack from server
             _handleSendQuestion(data);
             break;
+        case EventHost.game_audios:
+            audios.countDownAudios = host.addSound(data.message.level_countdown.source);
+            audios.countDown_countSecond = data.message.level_countdown.countSecond;
+
     }
 }
 
@@ -89,9 +97,41 @@ function _handleSendQuestion(data){
     host.makeitKuis(); //display the kuis section
 
     host.addSoal(data.message.soal,data.message.pilihan); //display the question and options
-    setTimeout(()=>{
-        ws.send(sendData(EventHost.game_next,null));
-    },data.message.waktu*1000)
+
+    const waktu_soal = data.message.waktu;
+    const waktu_audio = (audios.countDown_countSecond - waktu_soal) < 0 ?
+        0 : audios.countDown_countSecond - waktu_soal;
+    
+    countDownWithAudio(waktu_soal,waktu_audio);
+}
+
+function countDownWithAudio(setTime,setAudioTime){
+    const timeEnd = Date.now() + setTime*1000;
+
+    if(setAudioTime !== 0){
+        audios.countDownAudios.currentTime = setAudioTime;
+        audios.countDownAudios.play()
+    }
+
+    function tick(){
+        let remaining = Math.max(0,Math.ceil((timeEnd - Date.now())/1000));
+        
+        if(remaining > 0){
+            setTimeout(tick,250);
+
+            if(setAudioTime === 0 &&remaining <= audios.countDown_countSecond){
+                audios.countDownAudios.play();
+            }
+        }
+        else{
+            audios.countDownAudios.pause();
+            audios.countDownAudios.currentTime = 0;
+            ws.send(sendData(EventHost.game_next,null));
+        }
+    }
+
+    tick();
+
 }
 
 

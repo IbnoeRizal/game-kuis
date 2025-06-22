@@ -22,16 +22,17 @@ class Game extends Kuis{
         //both
         player_quit: 'player-quit-the-game',
         game_send_question: "game-send-question",
+        game_rank: 'game-rank',
 
 
        //the host event
         game_lobby: 'game-lobby',
+        game_audios: 'game-audios',
         player_joined_before: 'player-joined-before',
         player_joined_after: 'player-joined-after',
         
         game_start: 'game-start',
         game_next: 'game-next',
-        game_rank: 'game-rank',
         game_end: "game-end",
         game_restart: "game-restart",
 
@@ -78,6 +79,8 @@ class Game extends Kuis{
         if (identity.role == 'host') {
             this.#host = identity;
             this.#gameLobbystart();
+            this.#websocketServer.sendMessage(this.#host,
+                Game.sendMessage(Game.EVENT.game_audios, Game.multimediaObject.kuis.sounds));
 
         }else{
             if (this.#host?.role) {
@@ -87,10 +90,10 @@ class Game extends Kuis{
                 );
             }
             this.assignPlayer(identity.nama, identity.ws, identity.pass);
-            if (this.#gameIsStarted && this.getPlayer(identity.nama, identity.pass).length !== 0 ) {
+            if (this.#gameIsStarted && this.getPlayer(identity.nama, identity.pass).length === 1 ) {
                 this.#kirimKuis(identity);
             }else if(this.#gameIsStarted){
-                identity.ws.close(4001,"game has already started, comeback later");
+                identity.ws.close(4003,"game has already started, comeback later");
             }
         }
 
@@ -204,7 +207,7 @@ class Game extends Kuis{
     }
 
     #gameContinue(){
-        const thePlan = Kuis.multimediaObject.plan;
+        const thePlan = Game.multimediaObject.plan;
         const counterSoal = (this.#gameLevel - 1 ) * thePlan["soal per level"] + this.#gameSoalKe ;
 
         this.raiseCountjawabanforOFFline(counterSoal);
@@ -246,7 +249,7 @@ class Game extends Kuis{
 
     #gameAnswered(identity, answer){
         const counterJawab = this.getPlayer(identity.nama, identity.pass)[0].countjawaban;
-        const banyakSoal = (this.#gameLevel-1) * Kuis.multimediaObject.plan["soal per level"] + this.#gameSoalKe;
+        const banyakSoal = (this.#gameLevel-1) * Game.multimediaObject.plan["soal per level"] + this.#gameSoalKe;
 
         if( counterJawab === banyakSoal) return;
 
