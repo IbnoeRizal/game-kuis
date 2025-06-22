@@ -1,15 +1,18 @@
 #video and photo
 /media/videos/**
 /media/photos/**
+/media/audios/**
 
 #keep track the gitkeep so the folder will be safe
 !/media/photos/.gitkeep
 !/media/videos/.gitkeep
+!/media/audios/.gitkeep
 
 #keep track the folders
 !/media/
 !/media/photos/
 !/media/videos/
+!/media/audios/
 
 #others
 package-lock.json

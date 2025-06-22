@@ -27,6 +27,7 @@ export default class Host{
                 media.autoplay = true;
                 media.loop = true;
                 media.muted = true;
+                media.addEventListener("playing",()=>{media.muted = false;});
             break;
             case Host.Image:
                 media = document.createElement('img');
@@ -35,7 +36,7 @@ export default class Host{
         }
         if(forceFullscreen){
             media.style.height = "100vh";
-            media.style.width = "100%";
+            media.style.width = "100vw";
         }else{
             media.style.height = "30vh";
             media.style.width = "auto";
@@ -89,9 +90,9 @@ export default class Host{
     makeitlobby(){
         this.toggleDisplay(Host.obj.kontainer_kuis,{forceNone:true});
        
-        setTimeout(()=>{
+        /* setTimeout(()=>{
             document.querySelector(`#${Host.obj.kontainer_konten.id}>video`).muted = false;
-        },10)
+        },10) */
     }
 
     makeitKuis(){
