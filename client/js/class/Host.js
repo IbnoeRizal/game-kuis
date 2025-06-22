@@ -34,7 +34,7 @@ export default class Host{
             break;
         }
         if(forceFullscreen){
-            media.style.height = "100%";
+            media.style.height = "100vh";
             media.style.width = "100%";
         }else{
             media.style.height = "30vh";

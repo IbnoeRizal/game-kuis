@@ -5,7 +5,7 @@ import { EventClient } from "./class/Event.js";
 const target =
   location.hostname === 'localhost'
     ? 'ws://localhost:3000'
-    : `ws://${location.hostname}:3000`;
+    : `ws://${location.hostname}:${location.port}`;
 
 const ws = new WebSocket(target);
 const client = new Client();

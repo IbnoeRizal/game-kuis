@@ -15,7 +15,13 @@
     --input-line-color: rgb(70, 177, 149);
     --title-light-color: 255,255,255;
 }
+html{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 body{
+    flex: 1 0 auto;
     height: fit-content;
     background-color: var(--background-color);
     display:flex;
