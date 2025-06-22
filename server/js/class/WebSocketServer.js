@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
 const EventEmitter = require('events');
+const {roles} = require('./Routing');
 
 class WebSocketServer extends EventEmitter {
 
@@ -71,7 +72,6 @@ class WebSocketServer extends EventEmitter {
         client.send(message);
       }else if(client !== identity.ws ){
         console.warn("⚠️ Failed to send to:", identity.nama);
-        console.error(identity);
       }
     });
   }
@@ -85,7 +85,6 @@ class WebSocketServer extends EventEmitter {
       identity.ws.send(message);
       console.log("send message✅ Sent to:", identity.nama);
     } else {
-    
       console.warn("⚠️ Failed to send to:", identity.nama);
     }
   }
@@ -128,11 +127,11 @@ class WebSocketServer extends EventEmitter {
 
   #handleIllegalConnection(identity){
 
-    if(identity.role === 'anonymous'){
+    if(identity.role === 'anonymous'||identity.nama === 'anonymous'){
       identity.ws.close(4001,"you must logged in first");
-    }else if(identity.role === 'host'){
+    }else if(identity.role === roles.Host){
       for (const [key, value] of this.#clients) {
-        if (value.role === 'host')
+        if (value.role === roles.Host)
         identity.ws.close(4002,"impersonating host");
       }
     }

@@ -3,7 +3,6 @@ const {parse} = require('jsonc-parser');
 const path = require('path');
 const jsoncFile = fs.readFileSync(path.join(__dirname, '../../../multimed.jsonc'), 'utf-8');
 const multimediaObject = parse(jsoncFile);
-const { OPEN } = require('ws');
 const _ = require('lodash')
 
 
