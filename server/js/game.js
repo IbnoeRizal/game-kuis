@@ -154,7 +154,7 @@ class Game extends Kuis{
 
                 case Game.EVENT.game_lobby:
                     this.#gameLobbyend();
-                    break;
+                break;
             }
 
         }else{
@@ -164,9 +164,10 @@ class Game extends Kuis{
                     this.#gameAnswered(identity, paket.data);
                 break;
                 case Game.EVENT.player_quit:
-                    this.#websocketServer.sendMessage(this.#host,
-                        Game.sendMessage(Game.EVENT.player_quit, identity.nama)
-                    );
+                    if(this.#host?.role)
+                        this.#websocketServer.sendMessage(this.#host,
+                            Game.sendMessage(Game.EVENT.player_quit, identity.nama)
+                        );
                     this.playerQuit(identity.nama);
                 break;
             }
