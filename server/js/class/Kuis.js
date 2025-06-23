@@ -89,7 +89,7 @@ class Kuis {
         let nilai = 0;
         let sulit = false;
 
-        if (jawaban && jawaban !== indexjawaban)
+        if (!jawaban || jawaban !== indexjawaban)
             return nilai;
 
         if ( nomor > nomorSoalMudah )

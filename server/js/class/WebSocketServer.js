@@ -122,7 +122,7 @@ class WebSocketServer extends EventEmitter {
 
     const newName = arrName.join(" ");
 
-    this.#makeNameUnique(newName,role);
+    return this.#makeNameUnique(newName,role);
   }
 
   #handleIllegalConnection(identity){
