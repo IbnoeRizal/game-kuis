@@ -119,7 +119,6 @@ class Game extends Kuis{
             setTimeout(
                 () => 
                 {
-                    console.log(`${identity.nama}${identity.ws}${identity.pass}${identity.role}`);
                     const player = this.getPlayer(identity.nama, identity.pass)[0];
                     
                     if (player?.ws && player.ws.readyState !== OPEN ){
