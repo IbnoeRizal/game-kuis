@@ -54,7 +54,8 @@ class WebSocketServer extends EventEmitter {
 //    sessionStorage.setItem('item', JSON.stringify({name: identity.nama, password: identity.pass}));
 
     console.log(`New ${identity.role} connected`);
-    this.emit(WebSocketServer.EVENT.player_joined, identity);
+    if(ws.readyState === WebSocket.OPEN)
+      this.emit(WebSocketServer.EVENT.player_joined, identity);
     
     ws.on('message', (message) => this.#handleMessage(identity, message));
     ws.on('close', () => this.#handleClose(identity));
