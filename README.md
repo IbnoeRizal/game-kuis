@@ -21,7 +21,7 @@ run ```npm install``` to install the dependency
 
 
  ```shell
- node server/js/game.js
+ npm run start
  ```
 
  you can change it's content in ```multimed.jsonc``` plan and kuis property.
