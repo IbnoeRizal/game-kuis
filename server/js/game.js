@@ -1,8 +1,9 @@
-const Routing = require('./class/Routing');
-const WebSocketServer = require('./class/WebSocketServer');
-const Kuis = require('./class/Kuis');
-const { OPEN } = require('ws');
-
+import 'dotenv/config'
+import Routing from './class/Routing.js';
+import WebSocketServer from './class/WebSocketServer.js';
+import Kuis from './class/Kuis.js';
+import ws from 'ws';
+const {OPEN} = ws;
 
 class Game extends Kuis{
 
@@ -89,12 +90,18 @@ class Game extends Kuis{
                     Game.sendMessage(Game.EVENT.player_joined_after, identity.nama)
                 );
             }
-            this.assignPlayer(identity.nama, identity.ws, identity.pass);
-            if (this.#gameIsStarted && this.getPlayer(identity.nama, identity.pass).length === 1 ) {
-                this.#kirimKuis(identity);
-            }else if(this.#gameIsStarted){
-                identity.ws.close(4003,"game has already started, comeback later");
+
+            if(!this.#gameIsStarted){
+                this.assignPlayer(identity.nama, identity.ws, identity.pass);
+                return;
             }
+
+            if (this.getPlayer(identity.nama, identity.pass).length === 1 ) {
+                this.#kirimKuis(identity);
+            }
+            
+            identity.ws.close(4001,"game has already started, comeback later");
+            
         }
 
     }

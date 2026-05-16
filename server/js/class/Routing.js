@@ -1,10 +1,15 @@
-const Express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const http = require('http');
-const session = require('express-session');
+import Express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import http from 'http';
+import session from 'express-session';
+import { fileURLToPath } from 'url';
 
-class Routing {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+export default class Routing {
     static roles = Object.freeze({
         Host: "host",
         Client: "client",
@@ -34,9 +39,14 @@ class Routing {
 
     #useMiddleware(){
         this.#sessionmMiddleware = session({
-            secret: 'super-secret-lol',
+            secret: process.env.SESSION_SECRET_TOKEN,
             resave: false,
-            saveUninitialized: true
+            saveUninitialized: false,
+            cookie:{
+                secure: process.env.NODE_ENV === 'production',
+                httpOnly: true,
+                sameSite: true
+            }
         });
 
         this.#app.use(bodyParser.urlencoded({ extended: true }));
@@ -101,5 +111,3 @@ class Routing {
     }
 
 }
-
-module.exports = Routing;   

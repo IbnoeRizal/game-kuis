@@ -1,12 +1,17 @@
-const fs = require('fs');
-const {parse} = require('jsonc-parser');
-const path = require('path');
-const jsoncFile = fs.readFileSync(path.join(__dirname, '../../../multimed.jsonc'), 'utf-8');
+import fs from 'fs';
+import {parse} from 'jsonc-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import _ from 'lodash';
+ 
+
+const __filename = fileURLToPath(import.meta.url);
+
+const jsoncFile = fs.readFileSync(path.join(path.dirname(__filename), '../../../multimed.jsonc'), 'utf-8');
 const multimediaObject = parse(jsoncFile);
-const _ = require('lodash')
 
 
-class Kuis {
+export default class Kuis {
 
     static multimediaObject = Object.freeze(multimediaObject);
     static perfectScore = 0;
@@ -117,4 +122,3 @@ class Kuis {
     }
 
 }
-module.exports = Kuis;

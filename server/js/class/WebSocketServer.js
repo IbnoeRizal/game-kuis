@@ -1,8 +1,18 @@
-const WebSocket = require('ws');
-const EventEmitter = require('events');
-const {roles} = require('./Routing');
+import Routing from './Routing.js';
+import {WebSocketServer as ws, WebSocket} from 'ws';
+import EventEmitter from 'events';
 
-class WebSocketServer extends EventEmitter {
+
+/**
+ * @typedef {{
+ *  role: string,
+ *  nama: string,
+ *  pass: string,
+ *  ws: WebSocket
+ * }}identity
+ */
+
+export default class WebSocketServer extends EventEmitter {
 
   static EVENT = Object.freeze({
     player_joined: 'player-joined',
@@ -18,7 +28,7 @@ class WebSocketServer extends EventEmitter {
     super();
     this.#port = port;
     this.#clients = new Map();
-    this.#wss = new WebSocket.Server({noServer: true});
+    this.#wss = new ws({noServer: true}); 
     this.#getSessionUser(server,sessionMiddleware);
     this.#initialize();
   }
@@ -40,10 +50,13 @@ class WebSocketServer extends EventEmitter {
 
 
   #handleConnection(ws, req) {
+    /**
+     * @type identity
+     */
     const identity = {
-     role: req.session.user || 'anonymous',
-     nama: req.session.name || 'anonymous',
-     pass: req.session.pass || '',
+     role: String(req.session.user).trim() ?? 'anonymous',
+     nama: String(req.session.name).trim() ?? 'anonymous',
+     pass: String(req.session.pass).trim() ?? '',
      ws: ws
     };
 
@@ -106,37 +119,46 @@ class WebSocketServer extends EventEmitter {
     return ids;
   }
 
+  /**
+   * 
+   * @param {string} name 
+   * @param {string} role 
+   * @returns 
+   */
   #makeNameUnique(name,role){
-
-    if (this.getClientsidtty(name,role).length === 0 ){
-      return name;
-    }
-
     const arrName = name.split(" ");
-    let akhir = arrName[arrName.length - 1];
 
-    if (!isNaN(akhir)){
-      arrName[arrName.length -1] = String(Number(akhir) + 1);
-    }else{
-      arrName.push('1');
+    while (this.getClientsidtty(name,role).length > 0){
+
+      const last = Number(arrName[arrName.length - 1])
+
+      if (!isNaN(last)){
+        arrName[arrName.length -1]++;
+      }else{
+        arrName.push('1');
+      }
+
+      name = arrName.join(" ");
+      
     }
-
-    const newName = arrName.join(" ");
-
-    return this.#makeNameUnique(newName,role);
+    
+    return name;
   }
-
+  
+  /**
+   * 
+   * @param {identity} identity 
+   */
   #handleIllegalConnection(identity){
 
     if(identity.role === 'anonymous'||identity.nama === 'anonymous'){
       identity.ws.close(4001,"you must logged in first");
-    }else if(identity.role === roles.Host){
+    }else if(identity.role === Routing.roles.Host){
       for (const [key, value] of this.#clients) {
-        if (value.role === roles.Host)
-        identity.ws.close(4002,"impersonating host");
+        if (value.role === Routing.roles.Host)
+        identity.ws.close(1008,"impersonating host");
       }
     }
   }
 
 }
-module.exports = WebSocketServer;
