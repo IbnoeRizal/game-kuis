@@ -2,10 +2,9 @@ import Client from "./class/Client.js";
 import { EventClient } from "./class/Event.js";
 
  
-const target =
-  location.hostname === 'localhost'
-    ? 'ws://localhost:3000'
-    : `ws://${location.hostname}:${location.port}`;
+const protocol = location.protocol == 'https'? 'wss' : 'ws';
+const origin  = location.origin
+const target =`${protocol}://${location.hostname}:${location.port}`;
 
 const ws = new WebSocket(target);
 const client = new Client();

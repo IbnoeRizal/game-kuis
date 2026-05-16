@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded',() =>{
         .then(data => {
 
             alert(data.message);
+            sessionStorage.setItem('item', JSON.stringify({name, password}));
             window.location.href = data.redirect;
             
-            sessionStorage.setItem('item', JSON.stringify({name, password}));
         })
         .catch(error => {
             console.error('Error:', error);
