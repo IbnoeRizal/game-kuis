@@ -2,19 +2,29 @@
   "name": "game-kuis",
   "version": "1.0.0",
   "main": ".\\server\\js\\game.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .\\server\\js\\game.js"
+    "start": "node ./server/js/game.js",
+    "dev": "nodemon --verbose -w ./client -w ./server --exec \"tsx ./server/js/game.js\""
   },
   "keywords": [],
   "author": "IbnoeRizal",
   "license": "GNU GENERAL PUBLIC LICENSE",
   "description": "quis game intended to be like kahoot",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "jsonc-parser": "^3.3.1",
     "lodash": "^4.17.21",
     "ws": "^8.18.2"
+  },
+  "devDependencies": {
+    "@types/express-session": "^1.19.0",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^25.8.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.22.0"
   }
 }
