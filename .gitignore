@@ -15,7 +15,8 @@
 !/media/audios/
 
 #others
-package-lock.json
+.env
+
 .vscode
 node_modules/
 *coba.js
