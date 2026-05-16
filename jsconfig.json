@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "@server/*":["./server/js/*"],
+            "@client/*":["./client/js/*"]
+        },
+        "target": "es2020",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "allowJs": true
+    },
+    "exclude": ["node_modules"]
+}
