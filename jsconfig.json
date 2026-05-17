@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "paths": {
-            "@server/*":["./server/js/*"],
             "@client/*":["./client/js/*"]
         },
         "target": "es2020",

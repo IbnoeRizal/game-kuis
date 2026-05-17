@@ -1,10 +1,8 @@
 import Host from "./class/Host.js";
 import { EventHost } from "./class/Event.js";
 let hasPlayed = false;
-const target =
-  location.hostname === 'localhost'
-    ? 'ws://localhost:3000'
-    : `ws://${location.hostname}:${location.port}`;
+const protocol = location.protocol == 'https'? 'wss' : 'ws';
+const target =`${protocol}://${location.hostname}:3000}`;
 
 const ws = new WebSocket(target);
 const host = new Host();
@@ -143,7 +141,7 @@ ws.onmessage = (message) => {
 };
 
 ws.onclose = () => {
-
+    window.location.replace('/');
 };
 
 ws.onerror = () => {

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/js/game.js",
-    "dev": "nodemon --verbose -w ./client -w ./server --exec \"tsx ./server/js/game.js\""
+    "dev": "nodemon --verbose -w ./server  ./server/js/game.js"
   },
   "keywords": [],
   "author": "IbnoeRizal",

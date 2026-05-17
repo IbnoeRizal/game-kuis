@@ -3,8 +3,7 @@ import { EventClient } from "./class/Event.js";
 
  
 const protocol = location.protocol == 'https'? 'wss' : 'ws';
-const origin  = location.origin
-const target =`${protocol}://${location.hostname}:${location.port}`;
+const target =`${protocol}://${location.hostname}:3000`;
 
 const ws = new WebSocket(target);
 const client = new Client();
@@ -69,6 +68,6 @@ ws.onclose = ()=>{
   if(!close){
     setTimeout(() => {
       location.reload();
-    }, 3000);
+    }, 5000);
   }
 };
