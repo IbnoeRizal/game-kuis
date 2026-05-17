@@ -92,26 +92,12 @@ export default class Kuis {
         const nomorSoalMudah = multimediaObject.plan.kesulitan[`level ${level}`]["soal mudah"];
 
         let nilai = 0;
-        let sulit = false;
+        if (!jawaban || jawaban !== indexjawaban) return nilai;
 
-        if (!jawaban || jawaban !== indexjawaban)
-            return nilai;
+        let sulit = nomor > nomorSoalMudah ;
+        nilai = level;
 
-        if ( nomor > nomorSoalMudah )
-            sulit = true;
-
-        switch (level) {
-            case 3:
-                nilai ++;
-            case 2:
-                nilai ++;
-            case 1: 
-                nilai ++;
-            
-                return (sulit === true)? nilai*2 : nilai;
-          
-        }
-        
+        return (sulit)? nilai*2 : nilai;
     }
 
     raiseCountjawabanforOFFline(newCount){
